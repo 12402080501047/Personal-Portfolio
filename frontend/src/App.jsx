@@ -84,17 +84,17 @@ function App() {
                 I specialize in building exceptional digital experiences. Currently, I'm focused on building accessible, human-centered products and scalable backend systems.
               </p>
               <div className="hero-actions delay-200 animate-fade-in-up">
-                <a href="#contact" className="btn btn-primary">
-                  Hire Me
+                <a href="#projects" className="btn btn-primary">
+                  View My Work
                 </a>
-                <a href="#" className="btn btn-secondary">
-                  <Download size={18} /> Download CV
+                <a href="#contact" className="btn btn-secondary">
+                  <Mail size={18} /> Contact Me
                 </a>
               </div>
             </div>
             <div className="hero-image-wrapper delay-300 animate-fade-in-up">
               <div className="hero-image-circle">
-                <img src="/photo.jpeg" alt="Prince Desai" className="hero-image" onError={(e) => e.target.src = 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80'} />
+                <img src="/photo2.jpeg" alt="Prince Desai" className="hero-image" onError={(e) => e.target.src = 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80'} />
               </div>
             </div>
           </div>
