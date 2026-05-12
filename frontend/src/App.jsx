@@ -61,7 +61,7 @@ function App() {
               _id: '1',
               title: 'Niral Creation',
               description: 'A premium textiles website for Niral Creation. Features an elegant UI, smooth animations, and a beautifully crafted digital storefront for premium textile designs.',
-              imageUrl: '/niral.jpeg',
+              imageUrl: '/photo4.jpeg',
               technologies: ['HTML', 'CSS', 'JavaScript'],
               githubLink: 'https://github.com/12402080501047/niral-creation',
               liveLink: 'https://niral-creation.vercel.app/'
