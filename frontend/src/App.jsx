@@ -70,7 +70,7 @@ function App() {
               _id: '2',
               title: 'Rangoli App',
               description: 'A creative application for designing and sharing beautiful Rangoli patterns.',
-              imageUrl: '/project2.webp',
+              imageUrl: '/photo5.jpeg',
               technologies: ['HTML', 'CSS', 'JavaScript'],
               githubLink: 'https://github.com/12402080501047/rangoli-app',
               liveLink: '#'
