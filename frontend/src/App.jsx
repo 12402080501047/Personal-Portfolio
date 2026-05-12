@@ -73,7 +73,7 @@ function App() {
               imageUrl: '/photo5.jpeg',
               technologies: ['HTML', 'CSS', 'JavaScript'],
               githubLink: 'https://github.com/12402080501047/rangoli-app',
-              liveLink: '#'
+              liveLink: 'file:///D:/PROJECT/rangoli-app/index.html'
             }
           ]);
         }
