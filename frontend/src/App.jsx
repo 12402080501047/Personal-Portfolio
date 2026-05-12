@@ -63,7 +63,7 @@ function App() {
           <ul className="nav-links">
             <li><a href="#about" className="nav-link active">Home</a></li>
             <li><a href="#services" className="nav-link">About Me</a></li>
-            <li><a href="#experience" className="nav-link">Experience</a></li>
+
             <li><a href="#projects" className="nav-link">Projects</a></li>
             <li><a href="#contact" className="nav-link">Contact</a></li>
           </ul>
@@ -107,12 +107,15 @@ function App() {
           <div className="section-header animate-fade-in-up">
             <span className="hero-subtitle">WHO I AM</span>
             <h2 className="section-title">About Me</h2>
-            <p className="section-subtitle">
-              I am an Information Technology student with a passion for coding and learning new technologies. Always eager to build projects and improve my skills.
+          </div>
+
+          <div className="card delay-100 animate-fade-in-up" style={{ padding: '3rem', maxWidth: '800px', margin: '0 auto 4rem auto', textAlign: 'center' }}>
+            <p style={{ fontSize: '1.15rem', color: 'var(--text-secondary)', lineHeight: '1.8' }}>
+              I am an Information Technology student with a profound passion for coding and exploring new technologies. My journey in tech is driven by an endless curiosity and a deep-seated desire to build meaningful, user-centric applications. Whether I am architecting a robust backend database or crafting a pixel-perfect, interactive frontend, I am always eager to tackle complex challenges. I am constantly building new projects, learning industry best practices, and pushing myself to evolve as a modern software engineer.
             </p>
           </div>
           
-          <div className="services-grid delay-100 animate-fade-in-up">
+          <div className="services-grid delay-200 animate-fade-in-up">
             <div className="card service-card">
               <div className="service-icon"><Layout size={28} /></div>
               <h3>Frontend Dev</h3>
@@ -132,53 +135,6 @@ function App() {
         </div>
       </section>
 
-      {/* Experience Section */}
-      <section className="section" id="experience" style={{ backgroundColor: 'white' }}>
-        <div className="container">
-          <div className="section-header animate-fade-in-up">
-            <span className="hero-subtitle">MY JOURNEY</span>
-            <h2 className="section-title">Experience & Education</h2>
-          </div>
-
-          <div className="timeline delay-100 animate-fade-in-up">
-            <div className="timeline-item">
-              <div className="timeline-dot"></div>
-              <div className="timeline-date">2021 - Present</div>
-              <div className="card" style={{ padding: '1.5rem 2rem' }}>
-                <h3 style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.5rem' }}>
-                  <Briefcase size={20} className="text-gradient" /> Senior Full-Stack Developer
-                </h3>
-                <h4 style={{ color: 'var(--text-secondary)', marginBottom: '1rem', fontWeight: '500' }}>Tech Solutions Inc.</h4>
-                <p style={{ fontSize: '0.95rem' }}>Led a team of 5 developers in rebuilding the core e-commerce platform, improving performance by 40% and increasing conversion rates.</p>
-              </div>
-            </div>
-
-            <div className="timeline-item">
-              <div className="timeline-dot"></div>
-              <div className="timeline-date">2018 - 2021</div>
-              <div className="card" style={{ padding: '1.5rem 2rem' }}>
-                <h3 style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.5rem' }}>
-                  <Briefcase size={20} className="text-gradient" /> Web Developer
-                </h3>
-                <h4 style={{ color: 'var(--text-secondary)', marginBottom: '1rem', fontWeight: '500' }}>Creative Agency</h4>
-                <p style={{ fontSize: '0.95rem' }}>Developed responsive websites for various clients. Integrated third-party APIs and managed databases for seamless data flow.</p>
-              </div>
-            </div>
-
-            <div className="timeline-item">
-              <div className="timeline-dot"></div>
-              <div className="timeline-date">2014 - 2018</div>
-              <div className="card" style={{ padding: '1.5rem 2rem' }}>
-                <h3 style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.5rem' }}>
-                  <GraduationCap size={20} className="text-gradient" /> Bachelor of Computer Science
-                </h3>
-                <h4 style={{ color: 'var(--text-secondary)', marginBottom: '1rem', fontWeight: '500' }}>University of Technology</h4>
-                <p style={{ fontSize: '0.95rem' }}>Graduated with honors. Specialized in software engineering and database architectures.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Projects Section */}
       <section className="section" id="projects">
