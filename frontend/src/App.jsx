@@ -59,7 +59,7 @@ function App() {
       {/* Navbar */}
       <nav className="navbar">
         <div className="container">
-          <div className="logo text-gradient">JD.</div>
+          <div className="logo text-gradient">Portfolio</div>
           <ul className="nav-links">
             <li><a href="#about" className="nav-link active">Home</a></li>
             <li><a href="#services" className="nav-link">Services</a></li>
@@ -77,7 +77,7 @@ function App() {
             <div className="hero-text animate-fade-in-up">
               <span className="hero-subtitle">HELLO, I'M</span>
               <h1 className="hero-title">
-                John Doe<br />
+                Prince Desai<br />
                 <span className="text-gradient">Software Engineer</span>
               </h1>
               <p className="hero-desc delay-100 animate-fade-in-up">
@@ -94,7 +94,7 @@ function App() {
             </div>
             <div className="hero-image-wrapper delay-300 animate-fade-in-up">
               <div className="hero-image-circle">
-                <img src="/avatar.webp" alt="Profile" className="hero-image" onError={(e) => e.target.src = 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80'} />
+                <img src="/profile.jpg" alt="Prince Desai" className="hero-image" onError={(e) => e.target.src = 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80'} />
               </div>
             </div>
           </div>
@@ -290,8 +290,8 @@ function App() {
       {/* Footer */}
       <footer style={{ padding: '3rem 0', backgroundColor: 'var(--bg-main)', textAlign: 'center', color: 'var(--text-secondary)', borderTop: '1px solid var(--card-border)' }}>
         <div className="container">
-          <div className="logo text-gradient" style={{ marginBottom: '1rem', display: 'inline-block' }}>JD.</div>
-          <p>© {new Date().getFullYear()} John Doe. All rights reserved.</p>
+          <div className="logo text-gradient" style={{ marginBottom: '1rem', display: 'inline-block' }}>Portfolio</div>
+          <p>© {new Date().getFullYear()} Prince Desai. All rights reserved.</p>
         </div>
       </footer>
     </div>
