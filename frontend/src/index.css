@@ -258,7 +258,7 @@ a:hover {
   content: '';
   position: absolute;
   inset: 0;
-  background: rgba(10, 10, 12, 0.85); /* Dark overlay for readability */
+  background: rgba(255, 255, 255, 0.88); /* Light overlay for a faint transparent background effect */
   z-index: 0;
 }
 
@@ -285,12 +285,12 @@ a:hover {
 .hero-title {
   font-size: 3.5rem;
   margin-bottom: 1.5rem;
-  color: #ffffff; /* Override to white for dark bg */
+  color: var(--text-primary);
 }
 
 .hero-desc {
   font-size: 1.1rem;
-  color: #e2e8f0; /* Override to light gray for dark bg */
+  color: var(--text-secondary);
   margin-bottom: 2.5rem;
 }
 
