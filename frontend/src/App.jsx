@@ -226,7 +226,7 @@ function App() {
       </section>
 
       {/* Contact Section */}
-      <section className="section" id="contact" style={{ backgroundColor: 'white' }}>
+      <section className="section" id="contact" style={{ backgroundColor: 'var(--bg-secondary)' }}>
         <div className="container">
           <div className="section-header animate-fade-in-up">
             <span className="hero-subtitle">GET IN TOUCH</span>
