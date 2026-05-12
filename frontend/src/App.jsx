@@ -23,6 +23,25 @@ const GithubIcon = ({ size = 24, color = "currentColor", ...props }) => (
   </svg>
 );
 
+const LinkedinIcon = ({ size = 24, color = "currentColor", ...props }) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke={color}
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    {...props}
+  >
+    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+    <rect width="4" height="12" x="2" y="9" />
+    <circle cx="4" cy="4" r="2" />
+  </svg>
+);
+
 function App() {
   const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -40,12 +59,12 @@ function App() {
           setProjects([
             {
               _id: '1',
-              title: 'E-commerce Dashboard',
-              description: 'A comprehensive admin dashboard for e-commerce platforms. Features real-time sales tracking, inventory management, and beautiful data visualizations.',
-              imageUrl: '/project1.webp',
-              technologies: ['React', 'Node.js', 'MongoDB', 'Tailwind'],
-              githubLink: '#',
-              liveLink: '#'
+              title: 'Niral Creation',
+              description: 'A premium textiles website for Niral Creation. Features an elegant UI, smooth animations, and a beautifully crafted digital storefront for premium textile designs.',
+              imageUrl: '/niral.jpeg',
+              technologies: ['HTML', 'CSS', 'JavaScript'],
+              githubLink: 'https://github.com/12402080501047/niral-creation',
+              liveLink: 'https://niral-creation.vercel.app/'
             },
             {
               _id: '2',
@@ -109,6 +128,9 @@ function App() {
                 </a>
                 <a href="https://github.com/12402080501047" target="_blank" rel="noreferrer" className="btn btn-secondary" style={{ padding: '0.8rem', borderRadius: '50%' }} aria-label="GitHub">
                   <GithubIcon size={20} />
+                </a>
+                <a href="https://www.linkedin.com/in/prince-desai-007a37318/" target="_blank" rel="noreferrer" className="btn btn-secondary" style={{ padding: '0.8rem', borderRadius: '50%' }} aria-label="LinkedIn">
+                  <LinkedinIcon size={20} />
                 </a>
               </div>
             </div>
