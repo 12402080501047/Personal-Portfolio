@@ -94,7 +94,7 @@ function App() {
             </div>
             <div className="hero-image-wrapper delay-300 animate-fade-in-up">
               <div className="hero-image-circle">
-                <img src="/profile.jpg" alt="Prince Desai" className="hero-image" onError={(e) => e.target.src = 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80'} />
+                <img src="/photo.jpeg" alt="Prince Desai" className="hero-image" onError={(e) => e.target.src = 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80'} />
               </div>
             </div>
           </div>
