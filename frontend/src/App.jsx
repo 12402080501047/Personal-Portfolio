@@ -62,7 +62,7 @@ function App() {
           <div className="logo text-gradient">Portfolio</div>
           <ul className="nav-links">
             <li><a href="#about" className="nav-link active">Home</a></li>
-            <li><a href="#services" className="nav-link">Services</a></li>
+            <li><a href="#services" className="nav-link">About Me</a></li>
             <li><a href="#experience" className="nav-link">Experience</a></li>
             <li><a href="#projects" className="nav-link">Projects</a></li>
             <li><a href="#contact" className="nav-link">Contact</a></li>
@@ -105,10 +105,10 @@ function App() {
       <section className="section" id="services">
         <div className="container">
           <div className="section-header animate-fade-in-up">
-            <span className="hero-subtitle">WHAT I DO</span>
-            <h2 className="section-title">My Services</h2>
+            <span className="hero-subtitle">WHO I AM</span>
+            <h2 className="section-title">About Me</h2>
             <p className="section-subtitle">
-              Delivering high-quality solutions across the full stack of web development.
+              I am an Information Technology student with a passion for coding and learning new technologies. Always eager to build projects and improve my skills.
             </p>
           </div>
           
