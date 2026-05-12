@@ -241,7 +241,7 @@ function App() {
                 <div className="contact-icon"><Mail size={24} /></div>
                 <div>
                   <h4 style={{ marginBottom: '0.25rem' }}>Email</h4>
-                  <p style={{ color: 'var(--text-secondary)' }}>hello@johndoe.com</p>
+                  <p style={{ color: 'var(--text-secondary)' }}>desaiprince004@gmail.com</p>
                 </div>
               </div>
               
@@ -249,7 +249,7 @@ function App() {
                 <div className="contact-icon"><Phone size={24} /></div>
                 <div>
                   <h4 style={{ marginBottom: '0.25rem' }}>Phone</h4>
-                  <p style={{ color: 'var(--text-secondary)' }}>+1 (555) 123-4567</p>
+                  <p style={{ color: 'var(--text-secondary)' }}>+91 9825518793</p>
                 </div>
               </div>
               
@@ -257,24 +257,47 @@ function App() {
                 <div className="contact-icon"><MapPin size={24} /></div>
                 <div>
                   <h4 style={{ marginBottom: '0.25rem' }}>Location</h4>
-                  <p style={{ color: 'var(--text-secondary)' }}>San Francisco, CA</p>
+                  <p style={{ color: 'var(--text-secondary)' }}>Surat, Gujarat</p>
                 </div>
               </div>
             </div>
             
             <div className="contact-form">
-              <form onSubmit={(e) => e.preventDefault()}>
+              <form onSubmit={(e) => {
+                e.preventDefault();
+                const form = e.target;
+                const name = form.elements['name'].value.trim();
+                const email = form.elements['email'].value.trim();
+                const subject = form.elements['subject'].value.trim();
+                const message = form.elements['message'].value.trim();
+
+                if (!name || !message) {
+                  alert('Please fill in at least your name and message.');
+                  return;
+                }
+
+                const whatsappMessage = 
+                  `*New Portfolio Message*%0A` +
+                  `*Name:* ${name}%0A` +
+                  `*Email:* ${email}%0A` +
+                  `*Subject:* ${subject}%0A` +
+                  `*Message:* ${message}`;
+
+                const phoneNumber = '919825518793';
+                window.open(`https://wa.me/${phoneNumber}?text=${whatsappMessage}`, '_blank');
+                form.reset();
+              }}>
                 <div className="form-group">
-                  <input type="text" className="form-control" placeholder="Your Name" />
+                  <input type="text" name="name" className="form-control" placeholder="Your Name" required />
                 </div>
                 <div className="form-group">
-                  <input type="email" className="form-control" placeholder="Your Email" />
+                  <input type="email" name="email" className="form-control" placeholder="Your Email" />
                 </div>
                 <div className="form-group">
-                  <input type="text" className="form-control" placeholder="Subject" />
+                  <input type="text" name="subject" className="form-control" placeholder="Subject" />
                 </div>
                 <div className="form-group">
-                  <textarea className="form-control" placeholder="Message"></textarea>
+                  <textarea name="message" className="form-control" placeholder="Message" required></textarea>
                 </div>
                 <button type="submit" className="btn btn-primary" style={{ width: '100%' }}>
                   Send Message
