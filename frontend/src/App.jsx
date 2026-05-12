@@ -68,11 +68,11 @@ function App() {
             },
             {
               _id: '2',
-              title: 'Task Management System',
-              description: 'A collaborative kanban board application. Allows teams to organize tasks, set deadlines, and track progress with drag-and-drop functionality.',
+              title: 'Rangoli App',
+              description: 'A creative application for designing and sharing beautiful Rangoli patterns.',
               imageUrl: '/project2.webp',
-              technologies: ['Vue.js', 'Express', 'PostgreSQL', 'Socket.io'],
-              githubLink: '#',
+              technologies: ['HTML', 'CSS', 'JavaScript'],
+              githubLink: 'https://github.com/12402080501047/rangoli-app',
               liveLink: '#'
             }
           ]);

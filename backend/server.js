@@ -56,11 +56,11 @@ app.post('/api/seed', async (req, res) => {
         liveLink: '#'
       },
       {
-        title: 'Task Management App',
-        description: 'A productivity app for managing tasks and team collaboration.',
+        title: 'Rangoli App',
+        description: 'A creative application for designing and sharing beautiful Rangoli patterns.',
         imageUrl: '/project2.webp',
-        technologies: ['Vue.js', 'Express', 'PostgreSQL'],
-        githubLink: '#',
+        technologies: ['HTML', 'CSS', 'JavaScript'],
+        githubLink: 'https://github.com/12402080501047/rangoli-app',
         liveLink: '#'
       }
     ];
