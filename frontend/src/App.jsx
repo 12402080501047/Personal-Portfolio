@@ -1,12 +1,39 @@
-import { useState, useEffect } from 'react';
-import { 
-  Code, ExternalLink, Mail, ArrowRight, Code2, 
-  Database, Layout, Download, Briefcase, GraduationCap, 
-  MapPin, Phone, User
+import { useEffect, useState } from 'react';
+import {
+  Code,
+  ExternalLink,
+  Mail,
+  Code2,
+  Database,
+  Layout,
+  MapPin,
+  Phone,
 } from 'lucide-react';
 import './index.css';
 
-const GithubIcon = ({ size = 24, color = "currentColor", ...props }) => (
+const fallbackProjects = [
+  {
+    _id: '1',
+    title: 'Niral Creation',
+    description:
+      'A premium textiles website for Niral Creation. Features an elegant UI, smooth animations, and a beautifully crafted digital storefront for premium textile designs.',
+    imageUrl: '/photo4.jpeg',
+    technologies: ['HTML', 'CSS', 'JavaScript'],
+    githubLink: 'https://github.com/12402080501047/niral-creation',
+    liveLink: 'https://niral-creation.vercel.app/',
+  },
+  {
+    _id: '2',
+    title: 'Rangoli App',
+    description: 'A creative application for designing and sharing beautiful Rangoli patterns.',
+    imageUrl: '/photo5.jpeg',
+    technologies: ['HTML', 'CSS', 'JavaScript'],
+    githubLink: 'https://github.com/12402080501047/rangoli-app',
+    liveLink: 'https://github.com/12402080501047/rangoli-app',
+  },
+];
+
+const GithubIcon = ({ size = 24, color = 'currentColor', ...props }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width={size}
@@ -23,7 +50,7 @@ const GithubIcon = ({ size = 24, color = "currentColor", ...props }) => (
   </svg>
 );
 
-const LinkedinIcon = ({ size = 24, color = "currentColor", ...props }) => (
+const LinkedinIcon = ({ size = 24, color = 'currentColor', ...props }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width={size}
@@ -43,44 +70,28 @@ const LinkedinIcon = ({ size = 24, color = "currentColor", ...props }) => (
 );
 
 function App() {
-  const [projects, setProjects] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [projects, setProjects] = useState(fallbackProjects);
 
   useEffect(() => {
-    // Fetch data from backend
     const fetchData = async () => {
+      if (!import.meta.env.DEV && !import.meta.env.VITE_API_URL) {
+        return;
+      }
+
+      const apiBaseUrl = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+
       try {
-        const projectsRes = await fetch('http://localhost:5000/api/projects').catch(() => null);
+        const projectsRes = await fetch(`${apiBaseUrl}/api/projects`).catch(() => null);
 
         if (projectsRes && projectsRes.ok) {
-          setProjects(await projectsRes.json());
-        } else {
-          // Fallback data if backend is not running
-          setProjects([
-            {
-              _id: '1',
-              title: 'Niral Creation',
-              description: 'A premium textiles website for Niral Creation. Features an elegant UI, smooth animations, and a beautifully crafted digital storefront for premium textile designs.',
-              imageUrl: '/photo4.jpeg',
-              technologies: ['HTML', 'CSS', 'JavaScript'],
-              githubLink: 'https://github.com/12402080501047/niral-creation',
-              liveLink: 'https://niral-creation.vercel.app/'
-            },
-            {
-              _id: '2',
-              title: 'Rangoli App',
-              description: 'A creative application for designing and sharing beautiful Rangoli patterns.',
-              imageUrl: '/photo5.jpeg',
-              technologies: ['HTML', 'CSS', 'JavaScript'],
-              githubLink: 'https://github.com/12402080501047/rangoli-app',
-              liveLink: 'file:///D:/PROJECT/rangoli-app/index.html'
-            }
-          ]);
+          const fetchedProjects = await projectsRes.json();
+
+          if (Array.isArray(fetchedProjects) && fetchedProjects.length > 0) {
+            setProjects(fetchedProjects);
+          }
         }
       } catch (error) {
         console.error('Error fetching data:', error);
-      } finally {
-        setLoading(false);
       }
     };
 
@@ -92,21 +103,18 @@ function App() {
       <div className="bg-glow-1"></div>
       <div className="bg-glow-2"></div>
 
-      {/* Navbar */}
       <nav className="navbar">
         <div className="container">
           <div className="logo text-gradient">Portfolio</div>
           <ul className="nav-links">
             <li><a href="#about" className="nav-link active">Home</a></li>
             <li><a href="#services" className="nav-link">About Me</a></li>
-
             <li><a href="#projects" className="nav-link">Projects</a></li>
             <li><a href="#contact" className="nav-link">Contact</a></li>
           </ul>
         </div>
       </nav>
 
-      {/* Hero Section */}
       <section className="hero" id="about">
         <div className="container">
           <div className="hero-content">
@@ -117,7 +125,7 @@ function App() {
                 <span className="text-gradient">Software Engineer</span>
               </h1>
               <p className="hero-desc delay-100 animate-fade-in-up">
-                I specialize in building exceptional digital experiences. Currently, I'm focused on building accessible, human-centered products and scalable backend systems.
+                I specialize in building exceptional digital experiences. Currently, I&apos;m focused on building accessible, human-centered products and scalable backend systems.
               </p>
               <div className="hero-actions delay-200 animate-fade-in-up">
                 <a href="#projects" className="btn btn-primary">
@@ -136,14 +144,18 @@ function App() {
             </div>
             <div className="hero-image-wrapper delay-300 animate-fade-in-up">
               <div className="hero-image-circle">
-                <img src="/photo2.jpeg" alt="Prince Desai" className="hero-image" onError={(e) => e.target.src = 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80'} />
+                <img
+                  src="/photo2.jpeg"
+                  alt="Prince Desai"
+                  className="hero-image"
+                  onError={(e) => (e.currentTarget.src = 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80')}
+                />
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Services Section */}
       <section className="section" id="services">
         <div className="container">
           <div className="section-header animate-fade-in-up">
@@ -156,7 +168,7 @@ function App() {
               I am an Information Technology student with a profound passion for coding and exploring new technologies. My journey in tech is driven by an endless curiosity and a deep-seated desire to build meaningful, user-centric applications. Whether I am architecting a robust backend database or crafting a pixel-perfect, interactive frontend, I am always eager to tackle complex challenges. I am constantly building new projects, learning industry best practices, and pushing myself to evolve as a modern software engineer.
             </p>
           </div>
-          
+
           <div className="services-grid delay-200 animate-fade-in-up">
             <div className="card service-card">
               <div className="service-icon"><Layout size={28} /></div>
@@ -177,8 +189,6 @@ function App() {
         </div>
       </section>
 
-
-      {/* Projects Section */}
       <section className="section" id="projects">
         <div className="container">
           <div className="section-header animate-fade-in-up">
@@ -187,45 +197,40 @@ function App() {
             <p className="section-subtitle">A collection of my recent projects demonstrating my technical expertise.</p>
           </div>
 
-          {loading ? (
-            <div style={{ textAlign: 'center' }}>Loading projects...</div>
-          ) : (
-            <div className="projects-grid">
-              {projects.map((project, index) => (
-                <div key={project._id} className={`project-row delay-${(index % 3) * 100} animate-fade-in-up`}>
-                  <div className="project-image-container">
-                    <img 
-                      src={project.imageUrl || 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&q=80'} 
-                      alt={project.title} 
-                      className="project-image"
-                      onError={(e) => e.target.src = 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&q=80'}
-                    />
+          <div className="projects-grid">
+            {projects.map((project, index) => (
+              <div key={project._id} className={`project-row delay-${(index % 3) * 100} animate-fade-in-up`}>
+                <div className="project-image-container">
+                  <img
+                    src={project.imageUrl || 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&q=80'}
+                    alt={project.title}
+                    className="project-image"
+                    onError={(e) => (e.currentTarget.src = 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&q=80')}
+                  />
+                </div>
+                <div className="project-info">
+                  <h3 className="text-gradient">{project.title}</h3>
+                  <p>{project.description}</p>
+                  <div className="tech-stack">
+                    {Array.isArray(project.technologies) ? project.technologies.map((tech, i) => (
+                      <span key={i} className="tech-pill">{tech}</span>
+                    )) : null}
                   </div>
-                  <div className="project-info">
-                    <h3 className="text-gradient">{project.title}</h3>
-                    <p>{project.description}</p>
-                    <div className="tech-stack">
-                      {project.technologies.map((tech, i) => (
-                        <span key={i} className="tech-pill">{tech}</span>
-                      ))}
-                    </div>
-                    <div style={{ display: 'flex', gap: '1rem' }}>
-                      <a href={project.githubLink} className="btn btn-secondary" style={{ padding: '0.5rem 1.2rem', fontSize: '0.85rem' }} target="_blank" rel="noreferrer">
-                        <Code size={16} /> Source Code
-                      </a>
-                      <a href={project.liveLink} className="btn btn-primary" style={{ padding: '0.5rem 1.2rem', fontSize: '0.85rem' }} target="_blank" rel="noreferrer">
-                        <ExternalLink size={16} /> Live Demo
-                      </a>
-                    </div>
+                  <div style={{ display: 'flex', gap: '1rem' }}>
+                    <a href={project.githubLink} className="btn btn-secondary" style={{ padding: '0.5rem 1.2rem', fontSize: '0.85rem' }} target="_blank" rel="noreferrer">
+                      <Code size={16} /> Source Code
+                    </a>
+                    <a href={project.liveLink} className="btn btn-primary" style={{ padding: '0.5rem 1.2rem', fontSize: '0.85rem' }} target="_blank" rel="noreferrer">
+                      <ExternalLink size={16} /> Live Demo
+                    </a>
                   </div>
                 </div>
-              ))}
-            </div>
-          )}
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* Contact Section */}
       <section className="section" id="contact" style={{ backgroundColor: 'var(--bg-secondary)' }}>
         <div className="container">
           <div className="section-header animate-fade-in-up">
@@ -236,7 +241,7 @@ function App() {
           <div className="contact-grid delay-100 animate-fade-in-up">
             <div className="contact-info">
               <h3 style={{ fontSize: '1.8rem', marginBottom: '2rem' }}>Let's discuss your next project!</h3>
-              
+
               <div className="contact-info-item">
                 <div className="contact-icon"><Mail size={24} /></div>
                 <div>
@@ -244,7 +249,7 @@ function App() {
                   <p style={{ color: 'var(--text-secondary)' }}>desaiprince004@gmail.com</p>
                 </div>
               </div>
-              
+
               <div className="contact-info-item">
                 <div className="contact-icon"><Phone size={24} /></div>
                 <div>
@@ -252,7 +257,7 @@ function App() {
                   <p style={{ color: 'var(--text-secondary)' }}>+91 9825518793</p>
                 </div>
               </div>
-              
+
               <div className="contact-info-item">
                 <div className="contact-icon"><MapPin size={24} /></div>
                 <div>
@@ -261,7 +266,7 @@ function App() {
                 </div>
               </div>
             </div>
-            
+
             <div className="contact-form">
               <form onSubmit={(e) => {
                 e.preventDefault();
@@ -276,7 +281,7 @@ function App() {
                   return;
                 }
 
-                const whatsappMessage = 
+                const whatsappMessage =
                   `*New Portfolio Message*%0A` +
                   `*Name:* ${name}%0A` +
                   `*Email:* ${email}%0A` +
@@ -308,7 +313,6 @@ function App() {
         </div>
       </section>
 
-      {/* Footer */}
       <footer style={{ padding: '3rem 0', backgroundColor: 'var(--bg-main)', textAlign: 'center', color: 'var(--text-secondary)', borderTop: '1px solid var(--card-border)' }}>
         <div className="container">
           <div className="logo text-gradient" style={{ marginBottom: '1rem', display: 'inline-block' }}>Portfolio</div>

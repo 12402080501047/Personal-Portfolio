@@ -61,7 +61,7 @@ app.post('/api/seed', async (req, res) => {
         imageUrl: '/photo5.jpeg',
         technologies: ['HTML', 'CSS', 'JavaScript'],
         githubLink: 'https://github.com/12402080501047/rangoli-app',
-        liveLink: 'file:///D:/PROJECT/rangoli-app/index.html'
+        liveLink: 'https://github.com/12402080501047/rangoli-app'
       }
     ];
 
